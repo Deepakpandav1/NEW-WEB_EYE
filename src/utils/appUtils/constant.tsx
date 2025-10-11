@@ -141,12 +141,12 @@ export const doctorData = [
     description3: " 1st & 3rd Sunday ⏰ (09:00 AM to 05:00 PM)",
   },
   {
-    name: "Dr. Harshita",
+    name: "Dr Ashima Monga",
     description: "Vitreoretinal Surgeon",
-    url: "/Dr.Harshita.jpeg",
+    url: "/Drashima.jpeg",
     description2:
-      "Dr. Harshita, an expert Vitreoretinal Surgeon, specializes in diagnosing and treating complex retinal and vitreous disorders, including diabetic retinopathy, retinal detachment, and macular degeneration. With advanced surgical skills and modern technology, she provides precise, patient-focused care to preserve vision and improve eye health, ensuring the best possible outcomes for every patient.",
-    description3: " Every Friday ⏰ (09:00 AM to 05:00 PM)",
+      " Dr. Ashima Monga, where advanced ophthalmic expertise meets compassionate, patient-centered care. With over 9 years of experience, Dr. Monga is a highly qualified specialist in both modern Cataract Surgery and complex Medical Retina conditions.",
+    description3: " Every saturday ⏰ (09:00 AM to 05:00 PM)",
   },
   {
     name: "Dr. Mohit Mahajan ",
