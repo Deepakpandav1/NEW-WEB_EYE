@@ -1,137 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
     <loc>https://drpreetisbrighteyecare.com/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  
   <url>
     <loc>https://drpreetisbrighteyecare.com/aboutUs</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  
   <url>
     <loc>https://drpreetisbrighteyecare.com/services</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
 
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/cataract</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/cornea</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Cornea%20Transplant</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/refractive</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/dryeye</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Oculoplastic</loc>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Glaucoma</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Pediatric</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Neuro%20Ophthalmology</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Uveitis</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/Keratoconus</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/REVERSING%20DIABETES%20CLINIC</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/General%20Ophthalmology</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/ContactLensClinic</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/MyopiaControlClinic</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/services/ProstheticShellClinic</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/bookAnAppointment</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/meetourteam</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://drpreetisbrighteyecare.com/facilityTour</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://drpreetisbrighteyecare.com/contactus</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/login</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://drpreetisbrighteyecare.com/services/Vitreoretinal%20Services</loc>
-    <priority>0.7</priority>
   </url>
 </urlset>

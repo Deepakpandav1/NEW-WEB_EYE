@@ -15,13 +15,13 @@ export const Landing = () => {
     <>
       <SEO
         title={
-          "Dr. Preeti's Bright Eye Care Hospital - Eye Specialist in Pathankot"
+          "Best Eye Hospital in Pathankot | Dr. Preeti's Bright Eye Care - #1 Eye Specialist Punjab"
         }
         description={
-          "Dr. Preeti’s Bright Eye Care Hospital in Pathankot offers advanced eye treatments including cataract surgery, LASIK, retina care & corneal transplant."
+          "India's #1 eye hospital in Pathankot, Punjab. Expert cataract surgery, LASIK, retina care, corneal transplant by Dr. Preeti. HOTA approved hospital. Book appointment now!"
         }
         keywords={
-          "Eye hospital in Pathankot, Eye specialist Pathankot, Best eye hospital Pathankot"
+          "best eye hospital Pathankot, eye specialist Pathankot, cataract surgery Pathankot, LASIK surgery Pathankot, retina specialist Punjab, corneal transplant Pathankot, eye doctor Pathankot, eye care Punjab, ophthalmologist Pathankot, eye treatment Pathankot, Dr Preeti eye hospital, bright eye care Pathankot, eye surgery Pathankot, vision care Pathankot, eye clinic Pathankot, eye hospital Punjab, HOTA approved eye hospital, organ transplant Pathankot, Dr Preeti Pathankot, Dr Preeti eye specialist, Dr Preeti cataract surgeon, Dr Preeti cornea specialist, Dr Manju Kumari Pathankot, Dr Ashima Monga Pathankot, Dr Mohit Mahajan Pathankot, Dr Raghuraj Sharma Pathankot, best eye doctor Pathankot, top ophthalmologist Pathankot, eye surgeon Pathankot, cornea transplant surgeon Pathankot, cataract surgeon Pathankot, LASIK surgeon Pathankot, retina surgeon Pathankot, pediatric ophthalmologist Pathankot, oculoplastic surgeon Pathankot"
         }
       />
       <div className=" bg-[url('/public/bg-100-vh.jpg')] bg-fixed   landing-page-div mt-18">

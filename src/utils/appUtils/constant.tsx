@@ -142,7 +142,7 @@ export const doctorData = [
   },
   {
     name: "Dr Ashima Monga",
-    description: "Ophthalmology, FICO",
+    description: "MBBS, DNB Ophthalmology, FMR, FICO",
     url: "/drashima.jpeg",
     description2:
       " Dr. Ashima Monga, where advanced ophthalmic expertise meets compassionate, patient-centered care. With over 9 years of experience, Dr. Monga is a highly qualified specialist in both modern Cataract Surgery and complex Medical Retina conditions.",

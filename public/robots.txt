@@ -8,9 +8,24 @@ Disallow: /login/
 Disallow: /api/
 Disallow: /server/
 Disallow: /private/
+Disallow: /node_modules/
+Disallow: /src/
 Disallow: /*?*          # avoid crawling duplicate query params
 Disallow: /*.json$      # block JSON files
 Disallow: /*.xml$       # except sitemap.xml
+Disallow: /package.json
+Disallow: /pnpm-lock.yaml
+Disallow: /vite.config.js
+
+# Allow important files
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /manifest.json
+Allow: /og-image.png
+Allow: /logo2.png
+
+# Crawl delay for better server performance
+Crawl-delay: 1
 
 # Important: allow sitemap
 Sitemap: https://drpreetisbrighteyecare.com/sitemap.xml
