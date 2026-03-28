@@ -9,14 +9,15 @@ export default function Service() {
   const { service } = useParams({ from: "/services/$service" });
   const currentService = useMemo(
     () => servicesDetails.filter((item) => item.id === service),
-    []
+    [service]
   );
+  const servicePath = `/services/${encodeURIComponent(service)}`;
 
   return (
     <div className="">
       {currentService.map((node) => (
-        <div>
-          <ServicePageCard item={node} key={node.id} />
+        <div key={node.id}>
+          <ServicePageCard item={node} path={servicePath} />
         </div>
       ))}
     </div>

@@ -27,13 +27,16 @@ import FacilityTour from "./routes/facilityTour";
 import Login from "./routes/login";
 import ContactUs from "./routes/ContactUs";
 import AboutUs from "./routes/AboutUs";
+import CashlessInsurancePage from "./routes/cashlessInsurance";
 
 // 🌐 Root layout (includes Header/Footer)
 const rootRoute = createRootRoute({
   component: () => (
-    <div className="flex flex-1 flex-col h-[100vh] w-full">
+    <div className="flex min-h-screen w-full flex-col">
       <Header />
-      <Outlet />
+      <main className="flex min-h-0 w-full min-w-0 flex-1 flex-col">
+        <Outlet />
+      </main>
       <Footer />
       {/* <TanStackRouterDevtools /> */}
     </div>
@@ -95,6 +98,11 @@ const AboutUsRoute = createRoute({
   path: "/AboutUs",
   component: AboutUs,
 });
+const cashlessInsuranceRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/cashless-insurance",
+  component: CashlessInsurancePage,
+});
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
@@ -108,6 +116,7 @@ const routeTree = rootRoute.addChildren([
   loginRoute,
   ContactUsRoute,
   AboutUsRoute,
+  cashlessInsuranceRoute,
 ]);
 
 const router = createRouter({

@@ -8,9 +8,10 @@ const MeetOurTeam = () => {
   return (
     <>
       <SEO
+        path="/meetourteam"
         title="Meet Our Expert Doctors | Dr. Preeti's Bright Eye Care Hospital Pathankot"
-        description="Meet our team of highly qualified eye specialists and surgeons at Dr. Preeti's Bright Eye Care Hospital. Expert care from experienced ophthalmologists in Pathankot."
-        keywords="eye doctors pathankot, ophthalmologists pathankot, dr preeti eye doctor, eye surgeon pathankot, eye specialists punjab"
+        description="Our ophthalmology team in Pathankot: cornea, retina, cataract, LASIK, and subspecialty eye surgeons at Dr. Preeti's Bright Eye Care."
+        keywords="eye doctors pathankot, ophthalmologists pathankot, dr preeti eye doctor, eye surgeon pathankot, eye specialists punjab, Bright Eye Care doctors"
       />
 
       {/* Hero Section */}

@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import SEO from "../components/SEO";
 
 const Login = () => {
   const [userType, setUserType] = useState("");
 
   return (
+    <>
+      <SEO
+        path="/login"
+        noindex
+        title="Staff & Patient Login | Dr. Preeti's Bright Eye Care"
+        description="Secure login for hospital staff and registered patients at Dr. Preeti's Bright Eye Care, Pathankot."
+        keywords="hospital login, staff portal, patient login"
+      />
     <div className="bg-[url('/bg-100-vh.jpg')] bg-fixed py-40 min-h-screen pb-6 ">
       <div className="max-w-xl mx-auto p-10 bg-white rounded-3xl shadow-2xl">
         <h1 className="text-2xl font-bold text-teal-800 text-center mb-6">
@@ -124,6 +133,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

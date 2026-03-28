@@ -2,15 +2,24 @@ import React from "react";
 import { useNavigate } from "@tanstack/react-router";
 import SEO from "../SEO";
 
-const ServicePageCard = ({ item }) => {
+const ServicePageCard = ({
+  item,
+  path,
+}: {
+  item: { title: string; description: string; id: string };
+  path?: string;
+}) => {
   const navigate = useNavigate();
+  const seoPath =
+    path ?? `/services/${encodeURIComponent(item.id)}`;
 
   return (
     <>
       <SEO
+        path={seoPath}
         title={`${item.title} Treatment | Dr. Preeti's Bright Eye Care Hospital Pathankot`}
         description={item.description}
-        keywords={`${item.title} treatment pathankot, ${item.title} surgery, eye care ${item.title}, ${item.title} specialist pathankot`}
+        keywords={`${item.title} treatment pathankot, ${item.title} surgery, eye care ${item.title}, ${item.title} specialist pathankot, eye hospital Pathankot`}
       />
 
       {/* Hero Section */}

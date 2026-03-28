@@ -10,8 +10,9 @@ function Services() {
   return (
     <>
       <SEO
+        path="/services"
         title="Eye Care Services | Dr. Preeti's Bright Eye Care Hospital Pathankot"
-        description="Comprehensive eye care services including cataract surgery, LASIK, corneal transplant, retina treatment, and more at Dr. Preeti's Bright Eye Care Hospital in Pathankot."
+        description="Eye surgery & treatment in Pathankot: cataract, LASIK, cornea, retina, glaucoma, paediatric eye care, dry eye, and more at Dr. Preeti's Bright Eye Care."
         keywords="eye care services pathankot, cataract surgery, LASIK, corneal transplant, retina treatment, eye surgery pathankot, ophthalmology services punjab"
       />
 

@@ -2,9 +2,17 @@
 
 import React from "react";
 import { privacyPolicyContent } from "../utils/appUtils/constant";
+import SEO from "../components/SEO";
 
 const privacyPolicy = () => {
   return (
+    <>
+      <SEO
+        path="/privacypolicy"
+        title="Privacy Policy | Dr. Preeti's Bright Eye Care Hospital"
+        description="How Dr. Preeti's Bright Eye Care collects, uses, and protects your personal information when you use our website and services in Pathankot."
+        keywords="privacy policy eye hospital, patient data protection, Bright Eye Care privacy, Pathankot hospital privacy"
+      />
     <div className="bg-[url('/bg-100-vh.jpg')] bg-fixed">
       <div className="max-w-5xl mx-auto px-4 p-10 mt-20 h-dvh overflow-scroll border-2-gray-200 border-solid rounded-3xl bg-white drop-shadow-lg mb-1.5">
         <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
@@ -27,6 +35,7 @@ const privacyPolicy = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

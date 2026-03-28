@@ -172,9 +172,10 @@ const BookAppointment = () => {
         onClose={() => setToast((p) => ({ ...p, visible: false }))}
       />
       <SEO
+        path="/bookAnAppointment"
         title="Book Appointment | Dr. Preeti's Bright Eye Care Hospital Pathankot"
-        description="Book your eye care appointment at Dr. Preeti's Bright Eye Care Hospital. Choose between telephonic consultation, video call, or in-person visit."
-        keywords="book eye appointment pathankot, eye consultation online, video call eye doctor, eye checkup appointment pathankot"
+        description="Book an eye appointment at Dr. Preeti's Bright Eye Care, Pathankot: phone, video, or in-person visits. Cataract, LASIK, cornea & general ophthalmology."
+        keywords="book eye appointment pathankot, eye consultation online, video call eye doctor, eye checkup appointment pathankot, Dr Preeti appointment"
       />
 
       {/* Hero Section */}

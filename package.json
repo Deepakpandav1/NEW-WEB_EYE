@@ -2,52 +2,54 @@
   "name": "eyeshp",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "dev": "vite --port 3000",
     "start": "vite --port 3000",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.6",
-    "@tanstack/react-router": "^1.121.2",
-    "@tanstack/react-router-devtools": "^1.121.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "@tanstack/react-router": "^1.168.7",
+    "@tanstack/react-router-devtools": "^1.166.11",
     "@types/react-router-dom": "^5.3.3",
-    "bwip-js": "^4.7.0",
-    "framer-motion": "^12.23.0",
+    "bwip-js": "^4.8.0",
+    "framer-motion": "^12.38.0",
     "html2canvas": "^1.4.1",
-    "jspdf": "^3.0.1",
-    "lucide-react": "^0.539.0",
-    "mdb-react-ui-kit": "^9.0.0",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^1.7.0",
+    "mdb-react-ui-kit": "^10.0.0",
     "qrcode": "^1.5.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-helmet": "^6.1.0",
-    "react-helmet-async": "^2.0.5",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.7.0",
+    "react-helmet-async": "^3.0.0",
+    "react-icons": "^5.6.0",
+    "react-router-dom": "^7.13.2",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^4.0.6",
-    "uuid": "^11.1.0"
+    "tailwindcss": "^4.2.2",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.2.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/bwip-js": "^3.2.3",
-    "@types/qrcode": "^1.5.5",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@types/uuid": "^10.0.0",
-    "@vitejs/plugin-react": "^4.3.4",
-    "jsdom": "^26.0.0",
-    "typescript": "^5.7.2",
-    "vite": "^6.1.0",
-    "vitest": "^3.0.5",
-    "web-vitals": "^4.2.4"
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "jsdom": "^29.0.1",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3",
+    "vitest": "^4.1.2",
+    "web-vitals": "^5.2.0"
   },
   "overrides": {
-    "@tanstack/react-router": "^1.121.2"
+    "@tanstack/react-router": "^1.168.7"
   }
 }

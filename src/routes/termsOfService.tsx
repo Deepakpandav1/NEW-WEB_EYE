@@ -2,9 +2,17 @@
 
 import React from "react";
 import { termsOfServiceContent } from "../utils/appUtils/constant";
+import SEO from "../components/SEO";
 
 const TermsOfService = () => {
   return (
+    <>
+      <SEO
+        path="/termsofservices"
+        title="Terms of Service | Dr. Preeti's Bright Eye Care Hospital"
+        description="Terms and conditions for using Dr. Preeti's Bright Eye Care website and services. Effective date and hospital policies for patients and visitors."
+        keywords="terms of service eye hospital, website terms Bright Eye Care, patient terms Pathankot"
+      />
     <div className="bg-[url('/bg-100-vh.jpg')] bg-fixed">
       <div className=" max-w-5xl mx-auto px-4 p-10 mt-20 h-dvh overflow-scroll border-2-gray-200 border-solid rounded-3xl bg-white drop-shadow-lg mb-1.5">
         <h1 className="text-4xl font-bold mb-4">Terms of Services</h1>
@@ -29,6 +37,7 @@ const TermsOfService = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

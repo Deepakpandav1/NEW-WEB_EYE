@@ -65,9 +65,10 @@ const ContactUs: React.FC = () => {
   return (
     <>
       <SEO
+        path="/ContactUs"
         title="Contact Us | Dr. Preeti's Bright Eye Care Hospital Pathankot"
-        description="Get in touch with Dr. Preeti's Bright Eye Care Hospital. Visit us in Pathankot or contact us via phone, email for appointments and inquiries."
-        keywords="contact eye hospital pathankot, dr preeti contact, eye hospital phone number pathankot, hospital address pathankot"
+        description="Contact Dr. Preeti's Bright Eye Care in Pathankot: address, phone, email, and enquiry form for appointments and eye care questions."
+        keywords="contact eye hospital pathankot, dr preeti contact, eye hospital phone number pathankot, hospital address pathankot, Bright Eye Care Pathankot"
       />
 
       {/* Hero Section */}

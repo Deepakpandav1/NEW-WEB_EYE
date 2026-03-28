@@ -7,9 +7,10 @@ const AboutUs = () => {
   return (
     <>
       <SEO
+        path="/AboutUs"
         title="About Us | Dr. Preeti's Bright Eye Care Hospital - Best Eye Care in Pathankot"
-        description="Learn about Dr. Preeti's Bright Eye Care Hospital, Pathankot's first HOTA-approved eye hospital. Expert team, advanced technology, and patient-centered care."
-        keywords="about dr preeti eye hospital, eye hospital pathankot about, bright eye care about us, HOTA approved hospital pathankot"
+        description="About Dr. Preeti's Bright Eye Care: HOTA-approved eye hospital in Pathankot, advanced diagnostics & surgery, and patient-first eye care across Punjab."
+        keywords="about dr preeti eye hospital, eye hospital pathankot about, bright eye care about us, HOTA approved hospital pathankot, eye hospital Punjab"
       />
 
       {/* Hero Section */}

@@ -14,7 +14,8 @@ export const headerMenu = [
     title: "Patient Care",
     items: [
       { label: "Appointments", Path: "/bookAnAppointment" },
-      { label: "Billing & Insurance", Path: "/ContactUs" },
+      { label: "Cashless insurance", Path: "/cashless-insurance" },
+      { label: "Billing & contact", Path: "/ContactUs" },
     ],
   },
   {
@@ -52,6 +53,7 @@ export const footerLinks = {
       title: "Quick Link",
       submenu: [
         { label: "Home", path: "/" },
+        { label: "Cashless insurance", path: "/cashless-insurance" },
         { label: "Facility Tour", path: "/facilityTour" },
         { label: "Meet Our Team", path: "/meetourteam" },
       ],

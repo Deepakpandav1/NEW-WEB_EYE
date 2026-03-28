@@ -42,9 +42,10 @@ const FacilityTour = () => {
   return (
     <>
       <SEO
+        path="/facilityTour"
         title="Facility Tour | Dr. Preeti's Bright Eye Care Hospital Pathankot"
-        description="Take a virtual tour of our state-of-the-art eye hospital facilities in Pathankot. View our operation theaters, diagnostic labs, consultation rooms, and more."
-        keywords="hospital facility pathankot, eye hospital tour, operation theater, diagnostic lab, modern hospital pathankot"
+        description="Virtual tour of our Pathankot eye hospital: OTs, diagnostics, consultation suites, and patient areas at Dr. Preeti's Bright Eye Care."
+        keywords="hospital facility pathankot, eye hospital tour, operation theater, diagnostic lab, modern hospital pathankot, Bright Eye Care facility"
       />
 
       {/* Hero Section */}
