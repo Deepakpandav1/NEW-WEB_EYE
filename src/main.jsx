@@ -72,7 +72,7 @@ const privacyPolicyRoute = createRoute({
 });
 const bookAnAppointmentRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/bookanappointment",
+  path: "/bookAnAppointment",
   component: BookAnAppointment,
 });
 const facilityTourRoute = createRoute({

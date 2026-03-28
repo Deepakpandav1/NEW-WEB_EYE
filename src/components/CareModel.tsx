@@ -1,100 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { careModelData } from "../utils/appUtils/constant";
-import { AnimatePresence, motion } from "framer-motion";
-
-const directionVariants = {
-  top: { y: -50, opacity: 0 },
-  left: { x: -50, opacity: 0 },
-  right: { x: 50, opacity: 0 },
-  "bottom-left": { x: -30, y: 50, opacity: 0 },
-  "bottom-right": { x: 30, y: 50, opacity: 0 },
-};
+import { motion } from "framer-motion";
 
 function CareModel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeItem = careModelData[activeIndex];
-
-  // Auto slide every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % careModelData.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const animationProps = {
-    initial: directionVariants[activeItem.direction],
-    animate: { x: 0, y: 0, opacity: 1 },
-    exit: { opacity: 0 },
-    transition: { duration: 0.5 },
-  };
-
-  // Responsive positions (adjust based on screen size)
-  const positions = [
-    { top: "-90px", left: "50%", transform: "translateX(-50%)" },
-    { top: "15%", left: "-150px" },
-    { bottom: "-20px", left: "-15%" },
-    { top: "15%", right: "-130px" },
-    { bottom: "-20px", right: "-15%" },
-  ];
 
   return (
-    <div className="w-full flex justify-center bg-white overflow-hidden">
-      <div className="relative py-20 w-full max-w-[1000px] h-[700px] md:h-[800px] flex justify-center items-center">
-        {/* Heading */}
-        <h2 className="absolute top-5 text-xl sm:text-2xl md:text-3xl font-bold text-center text-cyan-900 z-20 px-4">
-          Why Choose Dr. Preeti's Bright Eye Care Hospital
-        </h2>
-
-        {/* Outer Circle */}
-        <div className="relative w-[280px] sm:w-[350px] md:w-[400px] h-[280px] sm:h-[350px] md:h-[400px] rounded-full border border-dashed border-gray-400 flex items-center justify-center">
-          {/* Center Image */}
-          <div className="w-[200px] sm:w-[250px] md:w-[300px] h-[200px] sm:h-[250px] md:h-[300px] rounded-full overflow-hidden shadow-lg z-10 border-4 border-white">
-            <img
-              src={activeItem.image}
-              alt="care"
-              className="w-full h-full object-cover"
-            />
+    <div className="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 py-8 sm:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Section Header - Compact */}
+        <div className="text-center mb-4 sm:mb-6">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">
+              ✨ Our Care Philosophy
+            </span>
           </div>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+            Why Choose{" "}
+            <span className="bg-gradient-to-r from-cyan-600 via-teal-600 to-blue-600 bg-clip-text text-transparent">
+              Dr. Preeti's
+            </span>
+          </h2>
+        </div>
 
-          {/* Nodes */}
+        {/* Compact Grid of Excellence Pillars */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 max-w-5xl mx-auto">
           {careModelData.map((item, idx) => (
-            <div
-              key={item.id}
-              className="absolute text-center cursor-pointer w-[120px] sm:w-[140px] md:w-[160px]"
-              style={positions[idx]}
-              onClick={() => setActiveIndex(idx)}
-            >
-              <div className="flex items-center justify-center mb-2">
-                <div
-                  className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 border-2 rounded-full transition-all duration-300 ${
-                    activeIndex === idx
-                      ? "bg-cyan-900 border-cyan-900"
-                      : "border-gray-400"
-                  }`}
-                />
-              </div>
-              <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-800">
-                {item.title}
-              </div>
-            </div>
-          ))}
-
-          {/* Animated Text */}
-          <AnimatePresence mode="wait">
             <motion.div
-              key={activeItem.id}
-              className="absolute -bottom-[120px] sm:-bottom-[140px] w-[260px] sm:w-[300px] md:w-[350px] text-center"
-              {...animationProps}
+              key={item.id}
+              className="relative rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 bg-white gpu-accelerated"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <h3 className="text-sm sm:text-base md:text-lg font-bold mb-2">
-                {activeItem.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-600">
-                {activeItem.description}
-              </p>
+              {/* Compact Image & Content */}
+              <div className="aspect-square relative">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover will-change-transform"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/60 to-transparent"></div>
+
+                {/* Number Badge */}
+                <div className="absolute top-2 left-2 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-xs font-bold text-white">
+                    {idx + 1}
+                  </span>
+                </div>
+              </div>
+
+              {/* Title & Description - Compact */}
+              <div className="p-2 sm:p-3">
+                <h3 className="text-xs sm:text-sm font-bold text-slate-900 mb-1 leading-tight">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </motion.div>
-          </AnimatePresence>
+          ))}
         </div>
       </div>
     </div>

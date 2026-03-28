@@ -14,7 +14,7 @@ export const headerMenu = [
     title: "Patient Care",
     items: [
       { label: "Appointments", Path: "/bookAnAppointment" },
-      { label: "Billing & Insurance" },
+      { label: "Billing & Insurance", Path: "/ContactUs" },
     ],
   },
   {
@@ -87,7 +87,7 @@ export const footerLinks = {
           path: "/services/Oculoplastic",
         },
         {
-          lable: "Vitreoretinal Services",
+          label: "Vitreoretinal Services",
           path: "/services/Vitreoretinal%20Services",
         },
         {
@@ -419,7 +419,7 @@ export const termsOfServiceContent = {
     {
       title: "16. Governing Law and Jurisdiction",
       content:
-        "These Terms shall be governed by the laws of India. Any disputes shall fall under the jurisdiction of courts in [Insert City].",
+        "These Terms shall be governed by the laws of India. Any disputes shall fall under the jurisdiction of courts in Pathankot, Punjab.",
     },
     {
       title: "17. Changes to These Terms",
@@ -429,7 +429,7 @@ export const termsOfServiceContent = {
     {
       title: "18. Contact Us",
       content:
-        "Dr. Preeti’s Bright Eye Care Hospital\n[Insert full address]\nPhone: [Insert number]\nEmail: [Insert hospital email]\nWebsite: [Insert site URL]",
+        "Dr. Preeti's Bright Eye Care Hospital\nDurga Market, Chhoti Nehar to Sarna Road, Near Flyover, Pathankot, Punjab - 145025\nPhone: +91-62395 07877\nEmail: drpreetisbrighteyecare@gmail.com\nWebsite: https://drpreetisbrighteyecare.com/",
     },
     {
       title: "19. Feedback and Suggestions",
@@ -505,7 +505,7 @@ export const privacyPolicyContent = {
     {
       title: "12. Contact Us",
       content:
-        "If you have any questions or concerns regarding this policy or your personal data, please contact:\nDr. Preeti’s Bright Eye Care Hospital\n[Insert Address]\nEmail: [Insert Email]\nPhone: [Insert Number]",
+        "If you have any questions or concerns regarding this policy or your personal data, please contact:\nDr. Preeti's Bright Eye Care Hospital\nDurga Market, Chhoti Nehar to Sarna Road, Near Flyover, Pathankot, Punjab - 145025\nEmail: drpreetisbrighteyecare@gmail.com\nPhone: +91-62395 07877",
     },
   ],
 };
