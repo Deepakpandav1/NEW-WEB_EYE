@@ -73,7 +73,7 @@ const HomeWelcomeModal: React.FC = () => {
             aria-modal="true"
             aria-labelledby={titleId}
             aria-describedby={descId}
-            className="relative flex w-full max-w-[min(100%,42rem)] flex-col overflow-hidden rounded-3xl bg-white shadow-[0_32px_120px_-20px_rgba(15,23,42,0.45)] ring-1 ring-white/20 max-h-[min(92vh,720px)] md:max-h-[min(88vh,640px)] md:flex-row"
+            className="relative flex w-full min-h-0 max-w-[min(100%,42rem)] max-h-[min(94dvh,720px)] flex-col overflow-hidden rounded-3xl bg-white shadow-[0_32px_120px_-20px_rgba(15,23,42,0.45)] ring-1 ring-white/20 md:max-h-[min(88vh,640px)]"
             initial={
               reduce
                 ? undefined
@@ -87,8 +87,10 @@ const HomeWelcomeModal: React.FC = () => {
             }
             transition={{ duration: reduce ? 0.01 : 0.38, ease }}
           >
+            {/* Mobile: outer column scrolls entire main+footer; md: side‑by‑side */}
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] md:min-h-0 md:flex-1 md:flex-row md:overflow-hidden">
             {/* —— Left panel: brand / welcome —— */}
-            <div className="relative flex min-h-[200px] w-full shrink-0 flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-950 px-6 pb-6 pt-8 text-white md:w-[42%] md:min-h-0 md:px-7 md:py-9">
+            <div className="relative flex min-h-0 w-full shrink-0 flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-950 px-4 pb-5 pt-6 text-white sm:px-6 sm:pb-6 sm:pt-8 md:w-[42%] md:min-h-0 md:shrink-0 md:px-7 md:py-9">
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.12]"
                 style={{
@@ -133,17 +135,17 @@ const HomeWelcomeModal: React.FC = () => {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-cyan-200/90">
                   Pathankot · Punjab
                 </p>
-                <div className="mt-4 w-full">
+                <div className="mt-3 w-full max-w-[280px] mx-auto md:mx-0 md:mt-4 md:max-w-none">
                   <img
                     src="/logo2.png"
                     alt="Dr. Preeti's Bright Eye Care Hospital"
-                    className="block w-full h-auto max-w-full object-contain object-center md:object-left rounded-2xl bg-white px-3 py-3 sm:px-4 sm:py-3.5 shadow-lg shadow-black/20 ring-1 ring-white/30"
+                    className="block w-full h-auto max-h-[100px] max-w-full object-contain object-center md:max-h-none md:object-left rounded-2xl bg-white px-2.5 py-2 sm:px-4 sm:py-3.5 shadow-lg shadow-black/20 ring-1 ring-white/30"
                     decoding="async"
                   />
                 </div>
                 <h2
                   id={titleId}
-                  className="mt-4 font-semibold text-3xl leading-[1.1] tracking-tight sm:text-4xl"
+                  className="mt-3 font-semibold text-2xl leading-[1.1] tracking-tight sm:mt-4 sm:text-3xl md:text-4xl"
                 >
                   Welcome
                 </h2>
@@ -187,8 +189,8 @@ const HomeWelcomeModal: React.FC = () => {
             </div>
 
             {/* —— Right panel: highlights —— */}
-            <div className="flex min-h-0 flex-1 flex-col bg-slate-50/50">
-              <div className="min-h-0 flex-1 overflow-y-auto px-5 py-6 sm:px-7 sm:py-8">
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-slate-50/50 md:overflow-hidden">
+              <div className="min-h-0 flex-1 overflow-visible px-4 py-5 sm:px-7 sm:py-8 md:min-h-0 md:overflow-y-auto">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
                   Why patients trust us
                 </p>
@@ -221,7 +223,7 @@ const HomeWelcomeModal: React.FC = () => {
                       <p className="mt-2 text-sm leading-relaxed text-slate-600">
                         Licensed by the Government of Punjab for organ / tissue
                         transplantation. Registration:{" "}
-                        <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[11px] font-mono text-slate-800">
+                        <code className="inline-block max-w-full break-all rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-mono text-slate-800 sm:break-normal sm:text-[11px]">
                           DPBECH(P)-CT(N)-PB-2025-5ME3/12737
                         </code>
                       </p>
@@ -286,7 +288,7 @@ const HomeWelcomeModal: React.FC = () => {
                 </div>
               </div>
 
-              <div className="shrink-0 border-t border-slate-200/80 bg-white px-5 py-4 sm:px-7">
+              <div className="shrink-0 border-t border-slate-200/80 bg-white px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-7 sm:pb-4">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <button
                     type="button"
@@ -304,6 +306,7 @@ const HomeWelcomeModal: React.FC = () => {
                   </Link>
                 </div>
               </div>
+            </div>
             </div>
           </motion.div>
         </motion.div>

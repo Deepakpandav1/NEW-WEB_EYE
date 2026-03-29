@@ -31,12 +31,13 @@ export const Landing = () => {
       <div className="landing-page-div">
         {/* Modern Announcement Bar */}
         <div className="gradient-primary py-3 overflow-hidden">
-          <div className="flex animate-marquee text-white font-semibold text-sm md:text-base">
-            <span className="flex items-center gap-2">
+          <div className="flex flex-nowrap animate-marquee text-white font-semibold text-sm md:text-base">
+            <span className="flex shrink-0 items-center gap-2 whitespace-nowrap">
               <svg
-                className="w-5 h-5 flex-shrink-0"
+                className="h-5 w-5 shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
+                aria-hidden
               >
                 <path
                   fillRule="evenodd"
@@ -44,14 +45,16 @@ export const Landing = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              HOTA-approved Eye Hospital — Approved by Punjab Govt. | Regd No.:
-              DPBECH(P)-CT(N)-PB-2025-5ME3/12737
+              {
+                "HOTA-approved Eye Hospital — Approved by Punjab Govt. | Regd No. DPBECH(P)-CT(N)-PB-2025-5ME3/12737"
+              }
             </span>
-            <span className="flex items-center gap-2 ml-8">
+            <span className="ml-8 flex shrink-0 items-center gap-2 whitespace-nowrap">
               <svg
-                className="w-5 h-5 flex-shrink-0"
+                className="h-5 w-5 shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
+                aria-hidden
               >
                 <path
                   fillRule="evenodd"
@@ -59,8 +62,26 @@ export const Landing = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              First Organ/Tissue Transplantation – Corneal Transplantation
-              Center in Pathankot, Punjab
+              {
+                "First Organ/Tissue Transplantation – Corneal Transplantation Center in Pathankot, Punjab"
+              }
+            </span>
+            <span className="ml-8 flex shrink-0 items-center gap-2 whitespace-nowrap">
+              <svg
+                className="h-5 w-5 shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              {
+                "Cashless treatment facility is available at our hospital with empanelment of up to 32 insurance companies"
+              }
             </span>
           </div>
           <style>
@@ -70,7 +91,7 @@ export const Landing = () => {
             100% { transform: translateX(-100%); }
           }
           .animate-marquee {
-            animation: marquee 25s linear infinite;
+            animation: marquee 32s linear infinite;
           }
         `}
           </style>
@@ -95,18 +116,42 @@ export const Landing = () => {
 
           <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
             <div className="text-center space-y-3 sm:space-y-4 max-w-5xl mx-auto">
-              {/* Top Badge */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-xl text-xs sm:text-sm">
-                <svg
-                  className="w-4 h-4 text-yellow-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                <span className="font-bold">
-                  🏆 India's Leading Eye Care Hospital
-                </span>
+              {/* Top badges */}
+              <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:flex-wrap sm:gap-3">
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-xl text-xs sm:text-sm">
+                  <svg
+                    className="w-4 h-4 text-yellow-300 shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    aria-hidden
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <span className="font-bold text-center sm:text-left">
+                    🏆 India&apos;s Leading Eye Care Hospital
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-cyan-300/25 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-xl text-xs sm:text-sm max-w-[min(100%,22rem)] sm:max-w-none">
+                  <svg
+                    className="w-4 h-4 text-cyan-200 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                    />
+                  </svg>
+                  <span className="font-semibold leading-snug text-center sm:text-left">
+                    Cashless facility available — up to{" "}
+                    <span className="font-bold text-cyan-100">32</span>{" "}
+                    insurance partners
+                  </span>
+                </div>
               </div>
 
               {/* Main Title - Compact */}
@@ -196,11 +241,12 @@ export const Landing = () => {
                 </div>
                 {/* Trust Badges Inline */}
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
-                  <div className="w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center shrink-0">
                     <svg
                       className="w-3 h-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
+                      aria-hidden
                     >
                       <path
                         fillRule="evenodd"
@@ -211,6 +257,27 @@ export const Landing = () => {
                   </div>
                   <span className="text-xs text-white font-semibold">
                     HOTA Approved
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                  <div className="w-6 h-6 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-full flex items-center justify-center shrink-0">
+                    <svg
+                      className="w-3 h-3 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="text-xs text-white font-semibold">
+                    Cashless — 32 insurers
                   </span>
                 </div>
               </div>
