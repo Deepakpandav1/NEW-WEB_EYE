@@ -50,7 +50,7 @@ const HomeWelcomeModal: React.FC = () => {
       {open && (
         <motion.div
           key="welcome-overlay"
-          className="fixed inset-0 z-[200] flex items-center justify-center p-3 sm:p-5 md:p-8"
+          className="fixed inset-0 z-[200] flex max-md:items-center max-md:justify-center max-md:p-2 items-center justify-center p-3 sm:p-5 md:p-8"
           role="presentation"
           initial={reduce ? undefined : { opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -73,7 +73,7 @@ const HomeWelcomeModal: React.FC = () => {
             aria-modal="true"
             aria-labelledby={titleId}
             aria-describedby={descId}
-            className="relative flex w-full min-h-0 max-w-[min(100%,42rem)] max-h-[min(94dvh,720px)] flex-col overflow-hidden rounded-3xl bg-white shadow-[0_32px_120px_-20px_rgba(15,23,42,0.45)] ring-1 ring-white/20 md:max-h-[min(88vh,640px)]"
+            className="relative flex w-full min-h-0 max-w-[min(100%,42rem)] max-md:max-h-[calc(100dvh-0.75rem)] max-h-[min(94dvh,720px)] flex-col overflow-hidden rounded-2xl bg-white shadow-[0_32px_120px_-20px_rgba(15,23,42,0.45)] ring-1 ring-white/20 md:max-h-[min(88vh,640px)] md:rounded-3xl"
             initial={
               reduce
                 ? undefined
@@ -87,10 +87,10 @@ const HomeWelcomeModal: React.FC = () => {
             }
             transition={{ duration: reduce ? 0.01 : 0.38, ease }}
           >
-            {/* Mobile: outer column scrolls entire main+footer; md: side‑by‑side */}
-            <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch] md:min-h-0 md:flex-1 md:flex-row md:overflow-hidden">
+            {/* Mobile: fitted column, no scroll; md: side‑by‑side + scroll in right pane */}
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden max-md:min-h-0 md:min-h-0 md:flex-1 md:flex-row">
             {/* —— Left panel: brand / welcome —— */}
-            <div className="relative flex min-h-0 w-full shrink-0 flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-950 px-4 pb-5 pt-6 text-white sm:px-6 sm:pb-6 sm:pt-8 md:w-[42%] md:min-h-0 md:shrink-0 md:px-7 md:py-9">
+            <div className="relative flex min-h-0 w-full shrink-0 flex-col justify-between overflow-hidden bg-gradient-to-br from-slate-950 via-teal-950 to-cyan-950 px-3 pb-3 pt-4 text-white sm:px-6 sm:pb-6 sm:pt-8 md:w-[42%] md:min-h-0 md:shrink-0 md:px-7 md:py-9">
               <div
                 className="pointer-events-none absolute inset-0 opacity-[0.12]"
                 style={{
@@ -112,11 +112,11 @@ const HomeWelcomeModal: React.FC = () => {
               <button
                 type="button"
                 onClick={close}
-                className="relative z-10 ml-auto flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-white/90 backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 md:absolute md:right-4 md:top-4"
+                className="relative z-10 -mt-1 ml-auto flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/10 text-white/90 backdrop-blur-sm transition-colors hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 max-md:mb-0 md:absolute md:right-4 md:top-4 md:mt-0 md:h-10 md:w-10 md:rounded-xl"
                 aria-label="Close"
               >
                 <svg
-                  className="h-5 w-5"
+                  className="h-4 w-4 md:h-5 md:w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -131,25 +131,25 @@ const HomeWelcomeModal: React.FC = () => {
                 </svg>
               </button>
 
-              <div className="relative z-10 mt-4 md:mt-8">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-cyan-200/90">
+              <div className="relative z-10 mt-1 text-center md:mt-8 md:text-left">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-cyan-200/90 md:text-[10px] md:tracking-[0.25em]">
                   Pathankot · Punjab
                 </p>
-                <div className="mt-3 w-full max-w-[280px] mx-auto md:mx-0 md:mt-4 md:max-w-none">
+                <div className="mx-auto mt-2 w-full max-w-[200px] md:mx-0 md:mt-4 md:max-w-none">
                   <img
                     src="/logo2.png"
                     alt="Dr. Preeti's Bright Eye Care Hospital"
-                    className="block w-full h-auto max-h-[100px] max-w-full object-contain object-center md:max-h-none md:object-left rounded-2xl bg-white px-2.5 py-2 sm:px-4 sm:py-3.5 shadow-lg shadow-black/20 ring-1 ring-white/30"
+                    className="block h-auto max-h-[52px] w-full max-w-full object-contain object-center md:max-h-none md:object-left rounded-xl bg-white px-2 py-1.5 shadow-lg shadow-black/20 ring-1 ring-white/30 md:rounded-2xl sm:px-4 sm:py-3.5"
                     decoding="async"
                   />
                 </div>
                 <h2
                   id={titleId}
-                  className="mt-3 font-semibold text-2xl leading-[1.1] tracking-tight sm:mt-4 sm:text-3xl md:text-4xl"
+                  className="mt-2 font-semibold text-xl leading-tight tracking-tight md:mt-4 md:text-3xl lg:text-4xl"
                 >
                   Welcome
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-cyan-100/85 sm:text-[0.9375rem]">
+                <p className="mt-1 text-xs leading-snug text-cyan-100/90 md:mt-2 md:text-[0.9375rem] md:leading-relaxed">
                   Dr. Preeti&apos;s{" "}
                   <span className="font-semibold text-white">
                     Bright Eye Care
@@ -157,19 +157,23 @@ const HomeWelcomeModal: React.FC = () => {
                 </p>
                 <p
                   id={descId}
-                  className="mt-4 text-xs leading-relaxed text-slate-300/95 sm:text-sm"
+                  className="mt-2 hidden text-xs leading-relaxed text-slate-300/95 sm:text-sm md:mt-4 md:block"
                 >
                   Advanced eye care, cornea &amp; cataract expertise, and
                   patient-first service—every time you visit us online or at the
                   hospital.
                 </p>
+                <p className="mt-2 text-[11px] leading-snug text-slate-300/95 md:hidden">
+                  Advanced eye care &amp; cataract expertise—patient-first on
+                  every visit.
+                </p>
               </div>
 
-              <div className="relative z-10 mt-6 md:mt-8">
-                <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 backdrop-blur-sm">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-400/20 text-amber-200">
+              <div className="relative z-10 mt-2 md:mt-8">
+                <div className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2 py-2 backdrop-blur-sm md:gap-2 md:rounded-xl md:px-3 md:py-2.5">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-amber-400/20 text-amber-200 md:h-8 md:w-8 md:rounded-lg">
                     <svg
-                      className="h-4 w-4"
+                      className="h-3 w-3 md:h-4 md:w-4"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       aria-hidden
@@ -181,7 +185,7 @@ const HomeWelcomeModal: React.FC = () => {
                       />
                     </svg>
                   </span>
-                  <p className="text-[11px] font-medium leading-snug text-cyan-50/90">
+                  <p className="text-left text-[10px] font-medium leading-snug text-cyan-50/90 md:text-[11px]">
                     First corneal transplant centre in Pathankot region
                   </p>
                 </div>
@@ -189,20 +193,20 @@ const HomeWelcomeModal: React.FC = () => {
             </div>
 
             {/* —— Right panel: highlights —— */}
-            <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-slate-50/50 md:overflow-hidden">
-              <div className="min-h-0 flex-1 overflow-visible px-4 py-5 sm:px-7 sm:py-8 md:min-h-0 md:overflow-y-auto">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+            <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-slate-50/50 max-md:min-h-0 md:overflow-hidden">
+              <div className="min-h-0 flex-1 overflow-visible px-3 py-2 sm:px-7 sm:py-8 md:min-h-0 md:overflow-y-auto md:px-7 md:py-8">
+                <p className="text-center text-[9px] font-semibold uppercase tracking-[0.18em] text-slate-400 md:text-left md:text-[11px] md:tracking-[0.2em]">
                   Why patients trust us
                 </p>
 
-                <div className="mt-5 space-y-4">
-                  <div className="group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5">
-                    <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-gradient-to-b from-emerald-500 to-teal-600" />
-                    <div className="pl-3">
-                      <div className="flex items-center gap-2">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100">
+                <div className="mt-2 space-y-2 sm:space-y-4 md:mt-5">
+                  <div className="group relative overflow-hidden rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-sm transition-shadow hover:shadow-md max-md:text-left sm:p-5 md:rounded-2xl">
+                    <div className="absolute left-0 top-0 h-full w-1 rounded-l-xl bg-gradient-to-b from-emerald-500 to-teal-600 md:rounded-l-2xl" />
+                    <div className="pl-2.5 md:pl-3">
+                      <div className="flex items-center gap-1.5 md:gap-2">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100 md:h-9 md:w-9 md:rounded-xl">
                           <svg
-                            className="h-4 w-4"
+                            className="h-3.5 w-3.5 md:h-4 md:w-4"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -216,27 +220,33 @@ const HomeWelcomeModal: React.FC = () => {
                             />
                           </svg>
                         </span>
-                        <h3 className="text-base font-semibold text-slate-900">
+                        <h3 className="text-sm font-semibold leading-tight text-slate-900 md:text-base">
                           HOTA-approved hospital
                         </h3>
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                        Licensed by the Government of Punjab for organ / tissue
-                        transplantation. Registration:{" "}
-                        <code className="inline-block max-w-full break-all rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-mono text-slate-800 sm:break-normal sm:text-[11px]">
+                      <p className="mt-1.5 text-[11px] leading-snug text-slate-600 md:mt-2 md:text-sm md:leading-relaxed">
+                        <span className="max-md:hidden">
+                          Licensed by the Government of Punjab for organ / tissue
+                          transplantation. Registration:{" "}
+                        </span>
+                        <span className="md:hidden">
+                          Punjab Govt. licensed for organ &amp; tissue
+                          transplant.{" "}
+                        </span>
+                        <code className="mt-0.5 inline-block max-w-full rounded bg-slate-100 px-1 py-0.5 font-mono text-[8px] leading-tight text-slate-800 max-md:block max-md:w-full md:mt-0 md:inline-block md:px-1.5 md:text-[11px]">
                           DPBECH(P)-CT(N)-PB-2025-5ME3/12737
                         </code>
                       </p>
                     </div>
                   </div>
 
-                  <div className="group relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm transition-shadow hover:shadow-md sm:p-5">
-                    <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl bg-gradient-to-b from-cyan-500 to-blue-600" />
-                    <div className="pl-3">
-                      <div className="flex items-center gap-2">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-50 text-cyan-700 ring-1 ring-cyan-100">
+                  <div className="group relative overflow-hidden rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-sm transition-shadow hover:shadow-md sm:p-5 md:rounded-2xl">
+                    <div className="absolute left-0 top-0 h-full w-1 rounded-l-xl bg-gradient-to-b from-cyan-500 to-blue-600 md:rounded-l-2xl" />
+                    <div className="pl-2.5 md:pl-3">
+                      <div className="flex items-center gap-1.5 md:gap-2">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-cyan-50 text-cyan-700 ring-1 ring-cyan-100 md:h-9 md:w-9 md:rounded-xl">
                           <svg
-                            className="h-4 w-4"
+                            className="h-3.5 w-3.5 md:h-4 md:w-4"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -250,22 +260,28 @@ const HomeWelcomeModal: React.FC = () => {
                             />
                           </svg>
                         </span>
-                        <h3 className="text-base font-semibold text-slate-900">
+                        <h3 className="text-sm font-semibold leading-tight text-slate-900 md:text-base">
                           Cashless insurance hospital
                         </h3>
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                        Empanelled with{" "}
-                        <span className="font-semibold text-slate-800">
-                          {insurancePartners.length}
-                        </span>{" "}
-                        insurers for cashless treatment where your policy and TPA
-                        allow.
+                      <p className="mt-1.5 text-[11px] leading-snug text-slate-600 md:mt-2 md:text-sm md:leading-relaxed">
+                        <span className="md:hidden">
+                          {insurancePartners.length} insurers — cashless
+                          treatment (per policy &amp; TPA).
+                        </span>
+                        <span className="hidden md:inline">
+                          Empanelled with{" "}
+                          <span className="font-semibold text-slate-800">
+                            {insurancePartners.length}
+                          </span>{" "}
+                          insurers for cashless treatment where your policy and
+                          TPA allow.
+                        </span>
                       </p>
                       <Link
                         to="/cashless-insurance"
                         onClick={close}
-                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-700 hover:text-cyan-900"
+                        className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-cyan-700 hover:text-cyan-900 max-md:py-0.5 md:mt-3 md:gap-1.5 md:text-sm"
                       >
                         View partner list &amp; guide
                         <svg
@@ -288,19 +304,19 @@ const HomeWelcomeModal: React.FC = () => {
                 </div>
               </div>
 
-              <div className="shrink-0 border-t border-slate-200/80 bg-white px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-7 sm:pb-4">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="shrink-0 border-t border-slate-200/80 bg-white px-3 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] sm:px-7 md:py-4 md:pb-4">
+                <div className="flex flex-row items-stretch gap-2 sm:items-center sm:justify-between">
                   <button
                     type="button"
                     onClick={close}
-                    className="order-2 rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 sm:order-1 sm:py-2.5"
+                    className="order-2 flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 transition-colors hover:bg-slate-100 sm:order-1 sm:flex-initial sm:rounded-xl sm:px-5 sm:py-2.5 sm:text-sm"
                   >
                     Close
                   </button>
                   <Link
                     to="/bookAnAppointment"
                     onClick={close}
-                    className="order-1 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-900/20 transition-all hover:from-teal-500 hover:to-cyan-500 sm:order-2 sm:py-2.5"
+                    className="order-1 flex-1 inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-teal-600 to-cyan-600 px-3 py-2 text-xs font-semibold text-white shadow-lg shadow-teal-900/20 transition-all hover:from-teal-500 hover:to-cyan-500 sm:order-2 sm:flex-initial sm:rounded-xl sm:px-6 sm:py-2.5 sm:text-sm"
                   >
                     Book appointment
                   </Link>
