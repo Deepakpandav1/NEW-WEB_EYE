@@ -1,66 +1,42 @@
-// src/components/FaqSection.tsx
-
 import React, { useId, useState } from "react";
-import {
-  faqCategories,
-  FAQCategory,
-  FAQItem,
-} from "../utils/appUtils/constant";
+import { faqCategories, FAQCategory, FAQItem } from "../utils/appUtils/constant";
 
 const FaqSection: React.FC = () => {
   const sectionId = useId();
   const [openKey, setOpenKey] = useState<string | null>(null);
 
-  const toggle = (key: string) => {
-    setOpenKey((prev) => (prev === key ? null : key));
-  };
+  const toggle = (key: string) => setOpenKey((prev) => (prev === key ? null : key));
 
   return (
-    <section
-      className="relative bg-gradient-to-b from-white via-slate-50/80 to-slate-50 py-10 sm:py-14"
-      aria-labelledby={`${sectionId}-heading`}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="text-center mb-8 sm:mb-10">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="bg-emerald-50 text-emerald-800 ring-1 ring-emerald-100/80 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase">
-              Patient resources
-            </span>
-          </div>
-          <h2
-            id={`${sectionId}-heading`}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight"
-          >
-            Frequently asked{" "}
-            <span className="bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-              questions
-            </span>
+    <section className="bg-slate-50/60 py-12 sm:py-16" aria-labelledby={`${sectionId}-heading`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-12">
+          <span className="section-badge mb-4 inline-flex">Patient Resources</span>
+          <h2 id={`${sectionId}-heading`} className="section-title">
+            Frequently Asked{" "}
+            <span className="text-teal-gradient">Questions</span>
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-sm sm:text-base text-slate-600 leading-relaxed">
+          <div className="section-divider"></div>
+          <p className="section-subtitle mt-4 text-sm sm:text-base">
             Quick answers about appointments, billing, admission, and reports.
-            Tap a question to read the full answer.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
           {faqCategories.map((category: FAQCategory, catIdx: number) => (
-            <div
-              key={catIdx}
-              className="rounded-2xl border border-slate-200/90 bg-white shadow-sm shadow-slate-200/40 p-4 sm:p-6"
-            >
+            <div key={catIdx} className="card-modern p-5 sm:p-6">
+
+              {/* Category header */}
               <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-100">
-                <span
-                  className="text-2xl shrink-0 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-50 text-cyan-800"
-                  aria-hidden
-                >
+                <div className="w-10 h-10 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center shrink-0 text-xl">
                   {category.emoji}
-                </span>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                  {category.title}
-                </h3>
+                </div>
+                <h3 className="text-base font-bold text-slate-900 leading-snug">{category.title}</h3>
               </div>
 
-              <ul className="space-y-2 list-none m-0 p-0" role="list">
+              <ul className="space-y-1.5 list-none m-0 p-0">
                 {category.items.map((item: FAQItem, idx: number) => {
                   const itemKey = `${catIdx}-${idx}`;
                   const isOpen = openKey === itemKey;
@@ -69,44 +45,20 @@ const FaqSection: React.FC = () => {
 
                   return (
                     <li key={itemKey}>
-                      <div className="rounded-xl border border-slate-100 bg-slate-50/60 hover:bg-slate-50 transition-colors duration-200 overflow-hidden">
+                      <div className={`rounded-xl border transition-colors duration-150 overflow-hidden ${isOpen ? "border-cyan-200 bg-cyan-50/40" : "border-slate-100 bg-slate-50/50 hover:bg-white"}`}>
                         <button
                           id={buttonId}
                           type="button"
                           aria-expanded={isOpen}
                           aria-controls={panelId}
                           onClick={() => toggle(itemKey)}
-                          className="w-full flex gap-3 items-start text-left p-3.5 sm:p-4 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 rounded-xl"
+                          className="w-full flex items-start gap-3 text-left px-4 py-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-xl"
                         >
-                          <span
-                            className="text-lg shrink-0 mt-0.5 opacity-90"
-                            aria-hidden
-                          >
-                            {item.icon}
-                          </span>
-                          <span className="flex-1 text-sm sm:text-[0.9375rem] text-slate-800 leading-snug pr-1">
-                            {item.question}
-                          </span>
-                          <span
-                            className={`shrink-0 mt-0.5 w-8 h-8 flex items-center justify-center rounded-full border transition-all duration-300 motion-reduce:transition-none ${
-                              isOpen
-                                ? "bg-cyan-600 border-cyan-600 text-white rotate-180"
-                                : "bg-white border-slate-200 text-slate-500"
-                            }`}
-                            aria-hidden
-                          >
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M6 9l6 6 6-6"
-                              />
+                          <span className="text-base shrink-0 mt-0.5 opacity-80" aria-hidden>{item.icon}</span>
+                          <span className="flex-1 text-sm text-slate-800 font-medium leading-snug pr-2">{item.question}</span>
+                          <span className={`shrink-0 mt-0.5 w-6 h-6 flex items-center justify-center rounded-full transition-all duration-200 ${isOpen ? "bg-cyan-600 text-white rotate-180" : "bg-white border border-slate-200 text-slate-400"}`} aria-hidden>
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
                             </svg>
                           </span>
                         </button>
@@ -115,13 +67,11 @@ const FaqSection: React.FC = () => {
                           id={panelId}
                           role="region"
                           aria-labelledby={buttonId}
-                          className={`grid motion-reduce:transition-none transition-[grid-template-rows] duration-300 ease-out ${
-                            isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                          }`}
+                          className={`grid transition-[grid-template-rows] duration-250 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                         >
                           <div className="min-h-0 overflow-hidden">
-                            <div className="px-3.5 sm:px-4 pb-4 pt-0 border-t border-slate-100/90">
-                              <p className="pl-0 sm:pl-[calc(1.25rem+0.5rem)] text-sm sm:text-[0.9375rem] text-slate-600 leading-relaxed whitespace-pre-line">
+                            <div className="px-4 pb-4 pt-0 border-t border-slate-100/80">
+                              <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line pt-3">
                                 {item.answer}
                               </p>
                             </div>

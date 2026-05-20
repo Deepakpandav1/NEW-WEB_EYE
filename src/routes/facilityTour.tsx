@@ -1,43 +1,30 @@
-// Professional Facility Tour Page - Modern Gallery Design
-import React, { useState } from "react";
-import Slider from "react-slick";
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { galleryItems, departments } from "../utils/appUtils/galleryData";
 import SEO from "../components/SEO";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const FacilityTour = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [selectedDept, setSelectedDept] = useState<string>("");
-
-  const mainSliderSettings = {
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    pauseOnHover: false,
-    speed: 1000,
-    cssEase: "linear",
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
-
-  const departmentSliderSettings = {
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    pauseOnHover: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
+  const [isPaused, setIsPaused] = useState(false);
 
   const filteredItems = selectedDept
     ? galleryItems.filter((item) => item.dept === selectedDept)
     : galleryItems;
+
+  const next = useCallback(() => {
+    setActiveIndex((i) => (i + 1) % galleryItems.length);
+  }, []);
+
+  const prev = () => {
+    setActiveIndex((i) => (i - 1 + galleryItems.length) % galleryItems.length);
+  };
+
+  useEffect(() => {
+    if (isPaused) return;
+    const id = setInterval(next, 3500);
+    return () => clearInterval(id);
+  }, [isPaused, next]);
 
   return (
     <>
@@ -48,268 +35,208 @@ const FacilityTour = () => {
         keywords="hospital facility pathankot, eye hospital tour, operation theater, diagnostic lab, modern hospital pathankot, Bright Eye Care facility"
       />
 
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-blue-900 via-cyan-900 to-teal-900 text-white py-20 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)",
-              backgroundSize: "40px 40px",
-            }}
-          ></div>
-        </div>
+      {/* Hero */}
+      <div className="relative overflow-hidden py-16 md:py-20" style={{ background: "linear-gradient(135deg, #0891b2 0%, #0d9488 100%)" }}>
+        <div className="absolute inset-0 opacity-[0.07]" style={{
+          backgroundImage: "radial-gradient(circle at 1.5px 1.5px, white 1.5px, transparent 0)",
+          backgroundSize: "36px 36px",
+        }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block mb-4">
-            <span className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold">
-              🏥 Virtual Hospital Tour
-            </span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+          <span className="section-badge mb-5 inline-flex" style={{ background: "rgba(255,255,255,0.15)", color: "white", borderColor: "rgba(255,255,255,0.3)" }}>
+            Virtual Hospital Tour
+          </span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
             Explore Our{" "}
-            <span className="text-cyan-300">World-Class Facilities</span>
+            <span className="text-cyan-100">World-Class Facilities</span>
           </h1>
-          <p className="text-xl text-cyan-100 max-w-3xl mx-auto leading-relaxed">
-            Take a virtual tour of our state-of-the-art hospital equipped with
-            the latest technology and modern amenities
+          <p className="text-base sm:text-lg text-cyan-50/90 max-w-2xl mx-auto leading-relaxed">
+            Take a virtual tour of our state-of-the-art hospital — equipped with the latest technology and modern amenities.
           </p>
         </div>
       </div>
 
       {/* Main Content */}
-      <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
+      <section className="bg-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           {/* Main Slider */}
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-              <Slider {...mainSliderSettings}>
-                {galleryItems.map((item, index) => (
-                  <div key={index}>
-                    <div className="relative h-[400px] sm:h-[500px] md:h-[600px] flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800">
-                      <div
-                        className="absolute inset-0 z-0 blur-2xl scale-110 bg-center bg-cover opacity-30"
-                        style={{ backgroundImage: `url(${item.image})` }}
-                      ></div>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="relative z-10 object-contain max-h-full max-w-full p-4"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent text-white p-6 z-20">
-                        <h3 className="text-2xl font-bold mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-cyan-300 text-sm font-semibold">
-                          {item.dept}
-                        </p>
-                      </div>
+          <div className="mb-12 sm:mb-16">
+            <div
+              className="relative rounded-2xl overflow-hidden border border-slate-100 shadow-modern"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
+              {/* Slide */}
+              <div className="relative h-70 sm:h-105 md:h-130 bg-slate-900 overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="absolute inset-0"
+                  >
+                    {/* Blurred background */}
+                    <div
+                      className="absolute inset-0 scale-110 blur-2xl opacity-30"
+                      style={{ backgroundImage: `url(${galleryItems[activeIndex].image})`, backgroundSize: "cover", backgroundPosition: "center" }}
+                    />
+                    {/* Main image */}
+                    <img
+                      src={galleryItems[activeIndex].image}
+                      alt={galleryItems[activeIndex].title}
+                      className="relative z-10 w-full h-full object-contain p-4"
+                    />
+                    {/* Caption */}
+                    <div className="absolute bottom-0 left-0 right-0 z-20 bg-linear-to-t from-black/80 to-transparent px-6 py-5">
+                      <h3 className="text-lg sm:text-xl font-bold text-white">{galleryItems[activeIndex].title}</h3>
+                      <p className="text-cyan-300 text-sm font-semibold">{galleryItems[activeIndex].dept}</p>
                     </div>
-                  </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Nav arrows */}
+                <button
+                  onClick={prev}
+                  className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white text-cyan-700 rounded-full shadow-lg flex items-center justify-center transition-all duration-150 hover:scale-105"
+                  aria-label="Previous slide"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={next}
+                  className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 bg-white/90 hover:bg-white text-cyan-700 rounded-full shadow-lg flex items-center justify-center transition-all duration-150 hover:scale-105"
+                  aria-label="Next slide"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Dot indicators */}
+              <div className="flex items-center justify-center gap-1.5 py-3 bg-slate-50 border-t border-slate-100">
+                {galleryItems.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    className={`rounded-full transition-all duration-200 ${i === activeIndex ? "w-5 h-2 bg-cyan-600" : "w-2 h-2 bg-slate-300 hover:bg-slate-400"}`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
                 ))}
-              </Slider>
+              </div>
             </div>
           </div>
 
-          {/* Department Filters */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Browse by Department
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+          {/* Department Filter */}
+          <div className="mb-10 sm:mb-12">
+            <div className="text-center mb-6">
+              <span className="section-badge mb-4 inline-flex">Browse by Department</span>
+              <h2 className="section-title">
+                Explore Our{" "}
+                <span className="text-teal-gradient">Departments</span>
+              </h2>
+              <div className="section-divider"></div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8">
               <button
-                className={`px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
-                  selectedDept === ""
-                    ? "bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg scale-105"
-                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-cyan-500 hover:text-cyan-700"
-                }`}
                 onClick={() => setSelectedDept("")}
+                className={`px-4 py-2 text-sm font-semibold rounded-full border transition-all duration-150 ${
+                  selectedDept === ""
+                    ? "bg-cyan-600 text-white border-cyan-600 shadow-sm"
+                    : "bg-white text-slate-600 border-slate-200 hover:border-cyan-400 hover:text-cyan-700"
+                }`}
               >
                 All Facilities
               </button>
               {departments.map((dept) => (
                 <button
                   key={dept}
-                  className={`px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
-                    selectedDept === dept
-                      ? "bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg scale-105"
-                      : "bg-white text-gray-700 border-2 border-gray-200 hover:border-cyan-500 hover:text-cyan-700"
-                  }`}
                   onClick={() => setSelectedDept(dept)}
+                  className={`px-4 py-2 text-sm font-semibold rounded-full border transition-all duration-150 ${
+                    selectedDept === dept
+                      ? "bg-cyan-600 text-white border-cyan-600 shadow-sm"
+                      : "bg-white text-slate-600 border-slate-200 hover:border-cyan-400 hover:text-cyan-700"
+                  }`}
                 >
                   {dept}
                 </button>
               ))}
             </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {filteredItems.map((item, index) => (
+                <motion.div
+                  key={`${item.image}-${index}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25, delay: index * 0.04 }}
+                  className="card-modern overflow-hidden group cursor-pointer"
+                >
+                  <div className="relative aspect-square overflow-hidden bg-slate-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-3">
+                      <span className="text-white text-xs font-semibold leading-tight">{item.title}</span>
+                    </div>
+                  </div>
+                  <div className="px-3 py-2.5">
+                    <p className="text-xs font-semibold text-slate-800 leading-tight truncate">{item.title}</p>
+                    <p className="text-[11px] text-cyan-600 font-medium mt-0.5">{item.dept}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          {/* Filtered Department Slider */}
-          {selectedDept && (
-            <div className="bg-white rounded-2xl shadow-xl p-6 mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <svg
-                  className="w-8 h-8 text-cyan-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                  />
-                </svg>
-                {selectedDept} Department
-              </h3>
-              <div className="bg-gray-50 rounded-xl overflow-hidden">
-                <Slider {...departmentSliderSettings}>
-                  {filteredItems.map((item, index) => (
-                    <div key={index}>
-                      <div className="relative h-[350px] sm:h-[450px] flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800">
-                        <div
-                          className="absolute inset-0 z-0 blur-2xl scale-110 bg-center bg-cover opacity-30"
-                          style={{ backgroundImage: `url(${item.image})` }}
-                        ></div>
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="relative z-10 object-contain max-h-full max-w-full p-4"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent text-white p-4 z-20">
-                          <h4 className="text-xl font-bold">{item.title}</h4>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </Slider>
-              </div>
-            </div>
-          )}
-
           {/* Info Cards */}
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-cyan-600 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-5">
+            {[
+              {
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
+                title: "State-of-the-Art Equipment",
+                desc: "Latest medical technology for accurate diagnosis and treatment",
+                color: "text-cyan-600",
+                bg: "bg-cyan-50 border-cyan-100",
+              },
+              {
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />,
+                title: "Hygienic & Safe Environment",
+                desc: "Maintaining highest standards of cleanliness and patient safety",
+                color: "text-teal-600",
+                bg: "bg-teal-50 border-teal-100",
+              },
+              {
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />,
+                title: "Comfortable Patient Care",
+                desc: "Spacious waiting areas and comfortable treatment rooms",
+                color: "text-indigo-600",
+                bg: "bg-indigo-50 border-indigo-100",
+              },
+            ].map((card, i) => (
+              <div key={i} className={`card-modern p-6 text-center border ${card.bg}`}>
+                <div className={`w-12 h-12 rounded-2xl ${card.bg} border flex items-center justify-center mx-auto mb-4`}>
+                  <svg className={`w-6 h-6 ${card.color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {card.icon}
+                  </svg>
+                </div>
+                <h4 className="text-base font-bold text-slate-900 mb-2">{card.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{card.desc}</p>
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2">
-                State-of-the-Art Equipment
-              </h4>
-              <p className="text-gray-700 text-sm">
-                Latest medical technology for accurate diagnosis and treatment
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg>
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2">
-                Hygienic & Safe Environment
-              </h4>
-              <p className="text-gray-700 text-sm">
-                Maintaining highest standards of cleanliness and safety
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-              </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2">
-                Comfortable Patient Care
-              </h4>
-              <p className="text-gray-700 text-sm">
-                Spacious waiting areas and comfortable treatment rooms
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
     </>
-  );
-};
-
-const SampleNextArrow = ({ onClick }: any) => {
-  return (
-    <button
-      onClick={onClick}
-      className="absolute top-1/2 right-4 transform -translate-y-1/2 z-30 w-12 h-12 bg-white text-cyan-700 text-2xl rounded-full shadow-xl hover:shadow-2xl focus:outline-none transition-all duration-200 hover:scale-110 flex items-center justify-center"
-    >
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M9 5l7 7-7 7"
-        />
-      </svg>
-    </button>
-  );
-};
-
-const SamplePrevArrow = ({ onClick }: any) => {
-  return (
-    <button
-      onClick={onClick}
-      className="absolute top-1/2 left-4 transform -translate-y-1/2 z-30 w-12 h-12 bg-white text-cyan-700 text-2xl rounded-full shadow-xl hover:shadow-2xl focus:outline-none transition-all duration-200 hover:scale-110 flex items-center justify-center"
-    >
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M15 19l-7-7 7-7"
-        />
-      </svg>
-    </button>
   );
 };
 

@@ -12,29 +12,25 @@ function Services() {
   });
 
   return (
-    <div className="relative bg-gradient-to-b from-white to-slate-50 py-8 sm:py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Compact Section Header */}
-        <div className="text-center mb-4 sm:mb-6">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold">
-              Our Specialties
-            </span>
-          </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">
-            Center of{" "}
-            <span className="bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent">
-              Excellence
-            </span>
+    <section className="bg-white py-12 sm:py-16 border-b border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section Header */}
+        <div className="text-center mb-8 sm:mb-10">
+          <span className="section-badge mb-4 inline-flex">Our Specialties</span>
+          <h2 className="section-title">
+            Centre of{" "}
+            <span className="text-teal-gradient">Excellence</span>
           </h2>
+          <div className="section-divider"></div>
+          <p className="section-subtitle mt-3 text-sm sm:text-base">
+            Advanced treatments across every area of eye care.
+          </p>
         </div>
 
-        {/* Horizontal Scroll Container - Compact */}
+        {/* Slider */}
         <div className="relative">
-          {/* Left Gradient */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none hidden md:block"></div>
-
-          {/* Scroll Container */}
+          <div className="absolute left-0 top-0 bottom-0 w-10 bg-linear-to-r from-white to-transparent z-10 pointer-events-none hidden md:block" />
           <div className="px-2 sm:px-4 md:px-8">
             <div
               ref={scrollRef}
@@ -43,7 +39,7 @@ function Services() {
             >
               {servicesData.map((item, index) => (
                 <SliderCard
-                  key={`original-${index}`}
+                  key={`svc-${index}`}
                   url={item.image}
                   title={item.title}
                   description={item.description}
@@ -52,45 +48,21 @@ function Services() {
               ))}
             </div>
           </div>
-
-          {/* Right Gradient */}
-          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none hidden md:block"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-10 bg-linear-to-l from-white to-transparent z-10 pointer-events-none hidden md:block" />
         </div>
 
-        {/* Compact Scroll Indicator */}
-        <div className="text-center mt-3">
-          <p className="text-xs text-slate-500 flex items-center justify-center gap-1.5">
-            <svg
-              className="w-4 h-4 animate-pulse"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            Scroll for more
-            <svg
-              className="w-4 h-4 animate-pulse"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </p>
-        </div>
+        {/* Scroll hint */}
+        <p className="text-center mt-4 text-xs text-slate-400 flex items-center justify-center gap-1.5 select-none">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Swipe or scroll to explore
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </p>
       </div>
-    </div>
+    </section>
   );
 }
 
