@@ -1,3 +1,4 @@
+import SiteImage from "../SiteImage";
 // Professional Doctor Profile Card - Compact & Proper Image Display
 import React from "react";
 import { Link } from "@tanstack/react-router";
@@ -8,7 +9,7 @@ const ProfileCard = React.memo(({ url, name, description, description1 }) => {
       <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out overflow-hidden h-full flex flex-col transform-gpu">
         {/* Doctor Image Section - Compact */}
         <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-50">
-          <img
+          <SiteImage
             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out will-change-transform"
             src={url}
             alt={`${name} - Eye Specialist at Dr. Preeti's Bright Eye Care Hospital`}

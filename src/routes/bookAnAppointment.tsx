@@ -1,7 +1,5 @@
 // Professional Book Appointment Page - Modern Form Design
 import React, { useState } from "react";
-import jsPDF from "jspdf";
-import bwipjs from "bwip-js";
 import SEO from "../components/SEO";
 import Toast from "../components/Toast";
 
@@ -55,6 +53,7 @@ const BookAppointment = () => {
   const generateBarcode = async (data) => {
     const canvas = document.createElement("canvas");
     try {
+      const { default: bwipjs } = await import("bwip-js");
       bwipjs.toCanvas(canvas, {
         bcid: "code128",
         text: data,
@@ -69,6 +68,7 @@ const BookAppointment = () => {
   };
 
   const generatePDF = async () => {
+    const { default: jsPDF } = await import("jspdf");
     const doc = new jsPDF({ format: "a5" });
     const barcode = await generateBarcode(formData.mobile);
 
@@ -179,7 +179,7 @@ const BookAppointment = () => {
       />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-orange-900 via-pink-900 to-purple-900 text-white py-20 md:py-24 overflow-hidden">
+      <div className="page-hero relative bg-gradient-to-br from-orange-900 via-pink-900 to-purple-900 text-white py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"

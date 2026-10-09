@@ -1,3 +1,4 @@
+import SiteImage from "./SiteImage";
 // src/components/ServiceModal.jsx
 import React from "react";
 import { motion } from "framer-motion";
@@ -28,7 +29,7 @@ const ServiceModal = ({ service, onClose }) => {
 
         {/* Modal Content */}
         <div className="flex flex-col md:flex-row gap-6 w-full items-center">
-          <img
+          <SiteImage
             src={service.image}
             alt={service.title}
             className="w-48 h-48 object-contain mx-auto md:mx-0"

@@ -9,6 +9,18 @@ const SchemaMarkup = () => {
           name: "Dr. Preeti's Bright Eye Care Hospital",
           image: "https://drpreetisbrighteyecare.com/assets/images/logo.png",
           url: "https://drpreetisbrighteyecare.com",
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            "name": "NABH Entry Level Certification Program (ELCP) for Hospitals, 2nd Edition",
+            "credentialCategory": "NABH Entry Level Certification",
+            "identifier": "ELCP-2026-18028",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "National Accreditation Board for Hospitals & Healthcare Providers"
+            },
+            "url": "https://drpreetisbrighteyecare.com/certificates/nabh-elcp-2026-18028.jpeg",
+            "description": "Valid from 4 August 2026 through 3 August 2028, for the scope specified in the certificate annexure, subject to continued compliance."
+          },
           telephone: "+91-6239507877",
           address: {
             "@type": "PostalAddress",

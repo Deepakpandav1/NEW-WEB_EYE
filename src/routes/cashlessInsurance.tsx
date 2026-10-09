@@ -150,7 +150,7 @@ const CashlessInsurancePage = () => {
       />
 
       {/* —— Hero: split left / right (aligned with home section) —— */}
-      <header className="relative overflow-x-clip bg-white border-b border-slate-200/90 pt-[5.75rem] sm:pt-[6.5rem] lg:pt-[6.75rem]">
+      <header className="insurance-hero relative overflow-x-clip bg-white border-b border-slate-200/90">
         <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-600" />
         <div
           className="pointer-events-none absolute right-0 top-0 h-full w-1/2 max-w-xl bg-gradient-to-l from-teal-50/80 to-transparent"
@@ -346,7 +346,7 @@ const CashlessInsurancePage = () => {
         className="relative bg-slate-50/40 border-b border-slate-200/80 scroll-mt-28 sm:scroll-mt-32"
       >
         <div
-          className="pointer-events-none absolute -right-24 top-1/4 h-80 w-80 rounded-full bg-teal-400/10 blur-3xl"
+          className="pointer-events-none absolute right-0 top-1/4 h-80 w-80 rounded-full bg-teal-400/10 blur-3xl"
           aria-hidden
         />
         <div

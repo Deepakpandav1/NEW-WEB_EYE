@@ -34,7 +34,7 @@ const rootRoute = createRootRoute({
   component: () => (
     <div className="flex min-h-screen w-full flex-col">
       <Header />
-      <main className="flex min-h-0 w-full min-w-0 flex-1 flex-col">
+      <main id="main-content" tabIndex={-1} className="flex min-h-0 w-full min-w-0 flex-1 flex-col">
         <Outlet />
       </main>
       <Footer />

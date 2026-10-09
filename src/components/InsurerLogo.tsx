@@ -1,3 +1,4 @@
+import SiteImage from "./SiteImage";
 import React, { useMemo, useState } from "react";
 
 function initialsFromName(name: string): string {
@@ -67,7 +68,7 @@ const InsurerLogo: React.FC<Props> = ({
     <div
       className={`${box} rounded-lg bg-white ring-1 ring-slate-200/90 flex items-center justify-center shrink-0 overflow-hidden shadow-[0_1px_2px_rgba(15,23,42,0.04)] ${className}`}
     >
-      <img
+      <SiteImage
         src={src}
         alt=""
         width={img}

@@ -1,3 +1,4 @@
+import SiteImage from "../SiteImage";
 import React from "react";
 import { useNavigate } from "@tanstack/react-router";
 import SEO from "../SEO";
@@ -23,7 +24,7 @@ const ServicePageCard = ({
       />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-cyan-900 via-teal-800 to-blue-900 text-white overflow-hidden">
+      <div className="page-hero service-detail-hero relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div
@@ -100,7 +101,7 @@ const ServicePageCard = ({
             <div className="relative flex justify-center lg:justify-end">
               <div className="relative w-full max-w-md">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
-                  <img
+                  <SiteImage
                     src={item.image}
                     alt={item.title}
                     className="w-full h-auto object-cover"

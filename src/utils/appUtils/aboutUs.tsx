@@ -13,7 +13,7 @@ Our mission is simple: To protect, preserve, and enhance your vision with precis
 
 ### Why Choose Us?
 - ✅ First HOTA-registered corneal transplant center in Pathankot
-- ✅ NABH guidelines followed for safety and hygiene
+- ✅ NABH Entry Level Certified under ELCP for Hospitals, 2nd Edition — Registration No. ELCP-2026-18028; valid from 4 August 2026 through 3 August 2028
 - ✅ Cashless insurance & Ayushman Bharat support
 - ✅ 24x7 emergency eye care
 - ✅ Modern OT, LASIK, and Retina units

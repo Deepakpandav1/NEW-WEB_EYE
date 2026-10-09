@@ -1,3 +1,4 @@
+import SiteImage from "../SiteImage";
 // Professional Doctor Team Card - Full Information Display
 import React from "react";
 import { Link } from "@tanstack/react-router";
@@ -10,13 +11,13 @@ function MeetOurTeamCard({
   description3,
 }) {
   return (
-    <div className="group w-full h-full">
+    <div className="team-directory-card group w-full h-full">
       <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
         {/* Image Section */}
         <div className="relative h-72 overflow-hidden bg-gradient-to-br from-cyan-50 to-teal-50">
-          <img
+          <SiteImage
             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-            src={url}
+            loading="lazy" src={url}
             alt={`${name} - Eye Specialist at Dr. Preeti's Bright Eye Care Hospital`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>

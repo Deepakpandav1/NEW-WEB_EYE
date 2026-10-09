@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import SiteImage from "../components/SiteImage";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { galleryItems, departments } from "../utils/appUtils/galleryData";
 import SEO from "../components/SEO";
@@ -7,6 +8,13 @@ const FacilityTour = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedDept, setSelectedDept] = useState<string>("");
   const [isPaused, setIsPaused] = useState(false);
+  const [previewImage, setPreviewImage] = useState(galleryItems[0]);
+  const preview = useRef<HTMLDialogElement>(null);
+  const openPreview = (item: typeof galleryItems[number]) => {
+    setPreviewImage(item);
+    setIsPaused(true);
+    preview.current?.showModal();
+  };
 
   const filteredItems = selectedDept
     ? galleryItems.filter((item) => item.dept === selectedDept)
@@ -35,8 +43,14 @@ const FacilityTour = () => {
         keywords="hospital facility pathankot, eye hospital tour, operation theater, diagnostic lab, modern hospital pathankot, Bright Eye Care facility"
       />
 
+      <dialog ref={preview} className="facility-preview" aria-label={previewImage.title} onClick={event => { if (event.target === preview.current) preview.current?.close(); }} onClose={() => setIsPaused(false)}>
+        <div className="facility-preview-toolbar"><h2>{previewImage.title}</h2><button type="button" autoFocus onClick={() => preview.current?.close()} aria-label="Close photo">✕</button></div>
+        <SiteImage src={previewImage.image} alt={previewImage.title} loading="eager" />
+        <p>{previewImage.description}</p>
+        <a href={previewImage.image} target="_blank" rel="noopener noreferrer">Open original photo (new tab) ↗</a>
+      </dialog>
       {/* Hero */}
-      <div className="relative overflow-hidden py-16 md:py-20" style={{ background: "linear-gradient(135deg, #0891b2 0%, #0d9488 100%)" }}>
+      <div className="page-hero relative overflow-hidden py-16 md:py-20">
         <div className="absolute inset-0 opacity-[0.07]" style={{
           backgroundImage: "radial-gradient(circle at 1.5px 1.5px, white 1.5px, transparent 0)",
           backgroundSize: "36px 36px",
@@ -83,10 +97,11 @@ const FacilityTour = () => {
                       style={{ backgroundImage: `url(${galleryItems[activeIndex].image})`, backgroundSize: "cover", backgroundPosition: "center" }}
                     />
                     {/* Main image */}
-                    <img
+                    <SiteImage
                       src={galleryItems[activeIndex].image}
                       alt={galleryItems[activeIndex].title}
                       className="relative z-10 w-full h-full object-contain p-4"
+                      loading="eager"
                     />
                     {/* Caption */}
                     <div className="absolute bottom-0 left-0 right-0 z-20 bg-linear-to-t from-black/80 to-transparent px-6 py-5">
@@ -176,19 +191,19 @@ const FacilityTour = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.25, delay: index * 0.04 }}
-                  className="card-modern overflow-hidden group cursor-pointer"
+                  className="card-modern overflow-hidden group"
                 >
-                  <div className="relative aspect-square overflow-hidden bg-slate-100">
-                    <img
+                  <button type="button" className="facility-image-button relative aspect-[4/3] w-full overflow-hidden bg-slate-100" onClick={() => openPreview(item)} aria-label={`View ${item.title} full size`}>
+                    <SiteImage
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-contain transition-transform duration-300"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end p-3">
                       <span className="text-white text-xs font-semibold leading-tight">{item.title}</span>
                     </div>
-                  </div>
+                  </button>
                   <div className="px-3 py-2.5">
                     <p className="text-xs font-semibold text-slate-800 leading-tight truncate">{item.title}</p>
                     <p className="text-[11px] text-cyan-600 font-medium mt-0.5">{item.dept}</p>

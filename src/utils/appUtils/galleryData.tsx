@@ -9,9 +9,15 @@ export interface GalleryItem {
 
 export const galleryItems: GalleryItem[] = [
   {
-    image: "/R-A.jpg",
-    title: "Reception & Waiting Area",
-    description: "A spacious and welcoming area for patient comfort.",
+    image: "/images/hospital/entrance-2026.jpeg",
+    title: "Hospital Entrance",
+    description: "The entrance to Dr. Preeti’s Bright Eye Care Hospital, Pathankot.",
+    dept: "Entrance",
+  },
+  {
+    image: "/images/hospital/reception-2026.jpeg",
+    title: "Reception & Billing Counter",
+    description: "Our updated reception and billing counter, with hospital certifications on display.",
     dept: "Reception",
   },
   {
@@ -102,6 +108,7 @@ export const galleryItems: GalleryItem[] = [
 ];
 
 export const departments: string[] = [
+  "Entrance",
   "Reception",
   "Operation Theater",
   "Pharmacy",

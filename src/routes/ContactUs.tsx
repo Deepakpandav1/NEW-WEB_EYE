@@ -72,7 +72,7 @@ const ContactUs: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-pink-900 via-cyan-900 to-teal-900 text-white py-20 md:py-24 overflow-hidden">
+      <div className="page-hero relative bg-gradient-to-br from-pink-900 via-cyan-900 to-teal-900 text-white py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"

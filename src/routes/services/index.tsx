@@ -1,12 +1,15 @@
 // Professional Services Page - Hospital Grade Design
 import { Outlet } from "react-router-dom";
 import { Link } from "@tanstack/react-router";
-import React from "react";
+import React, { useState } from "react";
+import { Search } from "lucide-react";
 import { servicesData } from "../../utils/appUtils/servicesConstants";
 import ServiceCard from "../../components/shared/ServiceCard";
 import SEO from "../../components/SEO";
 
 function Services() {
+  const [query, setQuery] = useState("");
+  const filteredServices = servicesData.filter(item => `${item.title} ${item.description}`.toLowerCase().includes(query.trim().toLowerCase()));
   return (
     <>
       <SEO
@@ -17,7 +20,7 @@ function Services() {
       />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 text-white py-20 md:py-24 overflow-hidden">
+      <div className="page-hero relative bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900 text-white py-20 md:py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -59,9 +62,11 @@ function Services() {
             </p>
           </div>
 
+          <label className="service-search"><Search size={19} /><span className="sr-only">Search eye care services</span><input type="search" placeholder="Search treatments and specialties…" value={query} onChange={event => setQuery(event.target.value)} /></label>
+          {query && <p role="status" className="search-status mb-5">{filteredServices.length ? `${filteredServices.length} services found` : "No matching services. Try another search or contact our team."}</p>}
           {/* Services Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {servicesData.map((item, index) => (
+            {filteredServices.map((item, index) => (
               <React.Fragment key={index}>
                 <ServiceCard item={item} />
               </React.Fragment>

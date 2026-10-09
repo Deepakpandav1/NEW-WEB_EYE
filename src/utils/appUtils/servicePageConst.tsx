@@ -13,9 +13,9 @@ export const servicesDetails = [
     content: (
       <>
         {/* Main Heading */}
-        <h1 className="text-4xl font-extrabold text-cyan-900 mt-8 mb-4 text-center tracking-tight">
+        <h2 className="text-4xl font-extrabold text-cyan-900 mt-8 mb-4 text-center tracking-tight">
           Comprehensive Cataract Care at Dr. Preeti’s Bright Eye Care Hospital
-        </h1>
+        </h2>
         <p className="text-center font-normal text-lg text-gray-700 max-w-3xl mx-auto mb-12">
           Reclaim clear, confident vision—don’t let cataracts dim your life. At
           Dr. Preeti’s Bright Eye Care Hospital, we combine compassion,
@@ -25,13 +25,7 @@ export const servicesDetails = [
 
         {/* Patient Care Philosophy Section */}
         <div className="bg-gray-50 rounded-xl p-8 shadow-sm flex flex-col md:flex-row items-center gap-10 my-10">
-          <div className="flex-shrink-0">
-            <img
-              className="w-full md:w-80 h-auto rounded-3xl object-cover"
-              src="../../../public/sub-pages-image/OurPatientCarePhilosophy.png"
-              alt="A smiling doctor speaking with a patient"
-            />
-          </div>
+
           <div className="flex-1">
             <h2 className="text-3xl font-semibold text-cyan-700 mb-6">
               Our Patient Care Philosophy
@@ -69,11 +63,7 @@ export const servicesDetails = [
         </h2>
         <div className="space-y-8">
           <div className="bg-white border border-gray-200 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
-            <img
-              className="w-full md:w-48 h-32 rounded-2xl object-cover"
-              src="../../../public/sub-pages-image/Monofocal_lenses.jpg"
-              alt="Monofocal Lens"
-            />
+
             <div className="flex-1">
               <h3 className="text-xl font-bold text-cyan-700 mb-2">
                 Monofocal Lens
@@ -89,11 +79,7 @@ export const servicesDetails = [
             </div>
           </div>
           <div className="bg-white border border-gray-200 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
-            <img
-              className="w-full md:w-48 h-32 rounded-2xl object-cover"
-              src="../../../public/sub-pages-image/Astigmatism-Correcting-Lens.jpg"
-              alt="Astigmatism-Correcting Lens"
-            />
+
             <div className="flex-1">
               <h3 className="text-xl font-bold text-cyan-700 mb-2">
                 Astigmatism-Correcting (Toric) Lens
@@ -107,11 +93,7 @@ export const servicesDetails = [
             </div>
           </div>
           <div className="bg-white border border-gray-200 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
-            <img
-              className="w-full md:w-48 h-32 rounded-2xl object-cover"
-              src="../../../public/sub-pages-image/Multifocal:Accommodative-Lens.jpg"
-              alt="Multifocal Lens"
-            />
+
             <div className="flex-1">
               <h3 className="text-xl font-bold text-cyan-700 mb-2">
                 Multifocal & Accommodative Lenses
@@ -128,11 +110,7 @@ export const servicesDetails = [
             </div>
           </div>
           <div className="bg-white border border-gray-200 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-6 shadow-sm">
-            <img
-              className="w-full md:w-48 h-32 rounded-2xl object-cover"
-              src="../../../public/sub-pages-image/Extended_depth-of-focus-IOLs.jpg"
-              alt="Extended Depth of Focus IOL"
-            />
+
             <div className="flex-1">
               <h3 className="text-xl font-bold text-cyan-700 mb-2">
                 Extended Depth of Focus (EDOF) IOLs
@@ -238,19 +216,7 @@ export const servicesDetails = [
               </li>
             </ul>
           </div>
-          <div className="flex-shrink-0 w-full md:w-1/2">
-            <div className="aspect-video w-full">
-              {/* Note: The video link needs to be a valid, accessible URL. This local path likely won't work in a live environment. */}
-              <iframe
-                className="w-full h-full rounded-lg shadow-lg"
-                src="../../../public/sub-pages-image/ssvid.net--- Cataract-Surgery-Animation_1080p.mp4"
-                title="Cataract Surgery Overview"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
+
         </div>
 
         {/* MICS Section */}
@@ -259,11 +225,7 @@ export const servicesDetails = [
           MICS: Micro Incision Cataract Surgery
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-10 bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
-          <img
-            className="w-full md:w-80 h-auto rounded-3xl object-cover flex-shrink-0"
-            src="../../../public/sub-pages-image/MICS-Procedure.jpg"
-            alt="Diagram of MICS procedure"
-          />
+
           <ul className="flex-1 list-disc ml-6 text-lg font-normal text-gray-700 space-y-3">
             <li>Local anesthesia to numb the eye.</li>
             <li>Tiny entry cuts at the corneal edge.</li>
@@ -336,11 +298,7 @@ export const servicesDetails = [
               </li>
             </ul>
           </div>
-          <img
-            className="w-full md:w-80 h-auto rounded-3xl object-cover flex-shrink-0"
-            src="../../../public/sub-pages-image/Procedure-Of-Femtosecond-Cataract-Surgery.jpg.webp"
-            alt="Diagram of FLACS procedure"
-          />
+
         </div>
 
         {/* Symptom Checker Section */}

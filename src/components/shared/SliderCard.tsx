@@ -1,3 +1,4 @@
+import SiteImage from "../SiteImage";
 // Professional Service Card Component - Compact & Fitted Design
 import React from "react";
 import { Link } from "@tanstack/react-router";
@@ -8,7 +9,7 @@ const SliderCard = React.memo(({ url, title, description, serviceId }) => {
       <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out overflow-hidden h-full flex flex-col transform-gpu">
         {/* Image Section - Compact */}
         <div className="relative h-32 sm:h-36 overflow-hidden">
-          <img
+          <SiteImage
             src={url}
             alt={title}
             loading="lazy"

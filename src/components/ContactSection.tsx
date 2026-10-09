@@ -3,7 +3,7 @@ import { contactInfo } from "../utils/appUtils/constant";
 
 const ContactSection: React.FC = () => {
   return (
-    <section className="bg-white py-12 sm:py-16 border-t border-slate-100">
+    <section className="visit-section bg-white py-12 sm:py-16 border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}

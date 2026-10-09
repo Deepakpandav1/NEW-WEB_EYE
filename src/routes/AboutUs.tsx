@@ -1,3 +1,4 @@
+import NabhCertification from "../components/NabhCertification";
 // Professional About Us Page - Hospital Grade Design
 import React from "react";
 import { aboutUsContent } from "../utils/appUtils/aboutUs";
@@ -9,12 +10,12 @@ const AboutUs = () => {
       <SEO
         path="/AboutUs"
         title="About Us | Dr. Preeti's Bright Eye Care Hospital - Best Eye Care in Pathankot"
-        description="About Dr. Preeti's Bright Eye Care: HOTA-approved eye hospital in Pathankot, advanced diagnostics & surgery, and patient-first eye care across Punjab."
-        keywords="about dr preeti eye hospital, eye hospital pathankot about, bright eye care about us, HOTA approved hospital pathankot, eye hospital Punjab"
+        description="About Dr. Preeti's Bright Eye Care: NABH Entry Level Certified and HOTA-approved eye hospital in Pathankot, advanced diagnostics & surgery, and patient-first eye care across Punjab."
+        keywords="NABH entry level certified eye hospital Pathankot, about dr preeti eye hospital, eye hospital pathankot about, bright eye care about us, HOTA approved hospital pathankot, eye hospital Punjab"
       />
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-cyan-900 to-teal-900 text-white py-20 md:py-28 overflow-hidden">
+      <div className="page-hero relative bg-gradient-to-br from-cyan-900 to-teal-900 text-white py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -39,6 +40,8 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
+
+      <NabhCertification />
 
       {/* Main Content Section */}
       <section className="section-padding bg-gradient-to-b from-white to-slate-50">
