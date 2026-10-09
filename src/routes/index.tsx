@@ -21,7 +21,7 @@ export const Landing = () => {
       <SEO
         path="/"
         title={
-          "NABH Entry Level Certified Eye Hospital in Pathankot | Dr. Preeti's Bright Eye Care"
+          "Dr Preeti's Bright Eye Care Hospital-NABH Approved"
         }
         description={
           "NABH Entry Level Certified and HOTA-approved eye hospital in Pathankot, Punjab. Cataract, LASIK, cornea & retina care by Dr. Preeti. Cashless insurance with 32+ partners. Book your eye appointment today."

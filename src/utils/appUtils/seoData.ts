@@ -1,7 +1,7 @@
 export const seoData = {
   homepage: {
     title:
-      "Dr. Preeti's Bright Eye Care Hospital - Eye Specialist in Pathankot",
+      "Dr Preeti's Bright Eye Care Hospital-NABH Approved",
     description:
       "India’s leading eye hospital in Pathankot offering cataract surgery, LASIK, retina care, corneal transplant, and more.",
     keywords:
